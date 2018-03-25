@@ -1,34 +1,43 @@
 /**
  * 
  */
-package concurrent;
+package concurrent21;
 
 /**   
- * @ClassName:  Ex1   
+ * @ClassName:  MoreBasicThread   
  * @Description:TODO(这里用一句话描述这个类的作用)   
  * @author: zhengqiang
- * @date:   2018年1月25日 上午10:58:26
+ * @date:   2018年1月25日 上午10:21:54
  */
-class EX1Task1 implements Runnable{
 
+class LiftOff implements Runnable{
+
+	private int countDown=10;
 	private static int taskCount=0;
 	private final int id=taskCount++;
-	EX1Task1(){
-		System.out.println("I am task("+id+")");
+	
+	LiftOff(){}
+	LiftOff(int countDown){
+		this.countDown=countDown;
 	}
 	
+	public String status(){
+		if(countDown>0)
+			return "#"+id+"("+countDown+").";
+		else
+			return "LiftOff.";
+	}
 	public void run() {
 		// TODO Auto-generated method stub
-		System.out.println("I am Run1()");
-		Thread.yield();
-		System.out.println("I am Run2()");
-		Thread.yield();
-		System.out.println("I am Run3()");
-		Thread.yield();
+		while(countDown-->0){
+			System.out.print(status());
+			Thread.yield();
+		}
+		System.out.println();		
 	}
 	
 }
-public class Ex1 {
+public class MoreBasicThread {
 
 	/**   
 	 * @Title: main   
@@ -39,8 +48,10 @@ public class Ex1 {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//LiftOff l=new LiftOff();
+		//l.run();
 		for(int i=0;i<5;i++)
-			new Thread(new EX1Task1()).start();
+			new Thread(new LiftOff()).start();
 		System.out.println("I am main()");
 
 	}
