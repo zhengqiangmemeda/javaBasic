@@ -1,7 +1,7 @@
 /**
  * 
  */
-package javaCollection;
+package javaCollection17;
 import java.util.*;
 
 /**   
