@@ -37,7 +37,7 @@ public class Map {
 		m.put(null,"a");
 		m.put(null,"b");
 		for(String key:m.keySet()){
-			System.out.println("key:"+key+" , value:"+m.get(key));  
+			System.out.println("key:"+key+" , value:"+m.get(key));
 		}
 		
 		System.out.println("-------------------------------------------------------");  
