@@ -6,7 +6,7 @@ package javaCollection17;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.TreeMap;
-import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**   
  * @ClassName:  Map   
@@ -64,8 +64,16 @@ public class Map {
 			System.out.println("key:"+key+" , value:"+ht.get(key));  
 		}
 		System.out.println("-------------------------------------------------------"); 
+		ConcurrentHashMap<String,String> chm=new ConcurrentHashMap<String,String>();
+		ht.put("zq1", "zq1");
+		ht.put("zq4", "zq4");
+		ht.put("zq3", "zq3");
+		ht.put("zq2", "zq2");
+		ht.put("zq2", "zq3");	
+		for(String key:ht.keySet()){
+			System.out.println("key:"+key+" , value:"+ht.get(key));  
+		}
 		
-
 		
 	}//end of main()
 
